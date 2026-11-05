@@ -3,6 +3,10 @@
 A complete storefront and marketplace for **Lyricshop**, a clothing brand built on lyrics: independent artists sell
 streetwear printed with their lines, and shoppers can design their own pieces in the **Lyricshop Studio**.
 
+Live: https://lyricshop.vercel.app
+
+<img src="docs/preview.webp" width="640" alt="Lyricshop preview">
+
 ## Run it
 
 ```bash
