@@ -1,0 +1,5 @@
+# Local tooling and secrets stay on this machine. Set keys in the Vercel dashboard instead.
+.claude
+.env*
+!.env.local.example
+tsconfig.tsbuildinfo

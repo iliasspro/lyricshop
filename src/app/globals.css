@@ -1,0 +1,212 @@
+@import "tailwindcss";
+@import "./design-fonts.css";
+
+@theme {
+  --color-ink: #0f0e0d;
+  --color-ink-2: #1a1917;
+  --color-ink-3: #2b2926;
+  --color-ink-4: #3a3733;
+  --color-bone: #f3eee5;
+  --color-paper: #eae3d7;
+  --color-sand: #d9d0c1;
+  --color-smoke: #6b645d;
+  --color-ash: #a39b90;
+  --color-red: #f4441b; /* 3.2:1 on bone for large display words; logo files keep #FF4A1C */
+  --color-red-deep: #c2330e;
+  --color-tape: #f5d547;
+  --color-ok: #2f7d4f;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --animate-marquee: marquee var(--marquee-duration, 38s) linear infinite;
+  --animate-marquee-reverse: marquee-reverse var(--marquee-duration, 38s) linear infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+  --animate-rise: rise 0.9s var(--ease-out-expo) both;
+  --animate-pulse-dot: pulse-dot 2.4s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translate3d(-50%, 0, 0); }
+    to { transform: translate3d(0, 0, 0); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translate3d(0, 28px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.82); }
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-geist), ui-sans-serif, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+    /* The sticky header covers the top of the page. Anchor jumps, focus scrolling and the
+       router's check for whether a new page is already in view all read this. */
+    scroll-padding-top: 4rem;
+  }
+  @media (width >= 48rem) {
+    html {
+      scroll-padding-top: 4.5rem;
+    }
+  }
+  body {
+    background: var(--color-bone);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-red);
+    color: var(--color-bone);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-red);
+    outline-offset: 3px;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 1440px;
+    padding-inline: clamp(1rem, 3.2vw, 3rem);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    font-variation-settings: "opsz" 96;
+  }
+  .serif-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("/textures/noise.png");
+    background-size: 160px;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+    z-index: 1;
+  }
+  .hairline {
+    border-color: color-mix(in oklab, currentColor 14%, transparent);
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+  .studio-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 18px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .studio-range::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--color-ink) var(--pct, 50%), color-mix(in oklab, var(--color-ink) 14%, transparent) var(--pct, 50%));
+  }
+  .studio-range::-moz-range-track {
+    height: 4px;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--color-ink) 14%, transparent);
+  }
+  .studio-range::-moz-range-progress {
+    height: 4px;
+    border-radius: 999px;
+    background: var(--color-ink);
+  }
+  .studio-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -7px;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--color-bone);
+    border: 2px solid var(--color-ink);
+    box-shadow: 0 2px 6px rgba(15, 14, 13, 0.25);
+  }
+  .studio-range::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: var(--color-bone);
+    border: 2px solid var(--color-ink);
+  }
+  .checkerboard {
+    background-color: #fff;
+    background-image: linear-gradient(45deg, #e6e1d7 25%, transparent 25%), linear-gradient(-45deg, #e6e1d7 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #e6e1d7 75%), linear-gradient(-45deg, transparent 75%, #e6e1d7 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+  }
+  .marker {
+    background-image: linear-gradient(transparent 58%, var(--color-tape) 58%, var(--color-tape) 90%, transparent 90%);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

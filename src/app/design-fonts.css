@@ -1,0 +1,23 @@
+/* Garment design fonts. Generated from src/lib/fonts.ts; files live in /public/fonts/design. */
+@font-face{font-family:"ls-anton";src:url("/fonts/design/anton.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-bebas-neue";src:url("/fonts/design/bebas-neue.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-archivo-black";src:url("/fonts/design/archivo-black.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-bricolage";src:url("/fonts/design/bricolage.woff2") format("woff2");font-weight:800;font-style:normal;font-display:block}
+@font-face{font-family:"ls-bungee";src:url("/fonts/design/bungee.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-instrument-serif";src:url("/fonts/design/instrument-serif.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-instrument-serif-italic";src:url("/fonts/design/instrument-serif-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:block}
+@font-face{font-family:"ls-playfair-black-italic";src:url("/fonts/design/playfair-black-italic.woff2") format("woff2");font-weight:900;font-style:italic;font-display:block}
+@font-face{font-family:"ls-abril-fatface";src:url("/fonts/design/abril-fatface.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-dm-serif-display";src:url("/fonts/design/dm-serif-display.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-shrikhand";src:url("/fonts/design/shrikhand.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-monoton";src:url("/fonts/design/monoton.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-rubik-glitch";src:url("/fonts/design/rubik-glitch.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-permanent-marker";src:url("/fonts/design/permanent-marker.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-caveat";src:url("/fonts/design/caveat.woff2") format("woff2");font-weight:700;font-style:normal;font-display:block}
+@font-face{font-family:"ls-rock-salt";src:url("/fonts/design/rock-salt.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-yellowtail";src:url("/fonts/design/yellowtail.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-pacifico";src:url("/fonts/design/pacifico.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-unifraktur";src:url("/fonts/design/unifraktur.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-pirata-one";src:url("/fonts/design/pirata-one.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-special-elite";src:url("/fonts/design/special-elite.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"ls-space-mono";src:url("/fonts/design/space-mono.woff2") format("woff2");font-weight:700;font-style:normal;font-display:block}
